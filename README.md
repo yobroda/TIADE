@@ -9,7 +9,7 @@ It is a powershell script that can be used for Initial Enumeration of a Multi-Tr
 PS C:\Users\User\Downloads\TIADE\Files> .\TIADE.ps1
 ```
 ## Who is this script for?
-As this script utilises only AD Module (the dll, psd1 and corresponding files have been taken from Microsoft Windows Server 2022 EVAL Version), it can be used by System Administrators and Red Teamers/Pentesters alike in their engagement.
+As this script utilises only AD Module (the dll, psd1 and corresponding files have been taken from Microsoft Windows Server 2022 EVAL Version), it can be used by System Administrators and Red Teamers/Pentesters alike in their engagements.
 
 ## What are the key benefits of this script?
 This is an automation script built around to utilise AD Module, which is a Microsoft signed binary, so it must not ring alarm bells. It also works equally well in [Invisi-Shell](https://github.com/OmerYa/Invisi-Shell)  
@@ -46,7 +46,7 @@ It first collects all the domains in the multi-trust environment, iterate each o
 * Restricted Groups
 
 ## What was the Motivation behind this tool?
-[Read Here !!](https://blog.radifine.com)
+[Read Here !!](https://blog.radifine.com/tiade-corresponding-blog-for-script-release-d0aef9037382)
 
 ## What is the Roadmap?
 * Random Sleep Generator
