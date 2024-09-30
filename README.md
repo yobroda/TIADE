@@ -32,6 +32,7 @@ It first collects all the domains in the multi-trust environment, iterate each o
 * Real Service Accounts (GMSA)
 * DA's, EA's, Groups with Admin or master keyword
 * Current User Group Membership (supported only for current domain)
+* Group Membership of All Users
 * ACEs over DAs
 * Principals having DC Sync Rights
 * Unconstrained Delegation
