@@ -1,7 +1,7 @@
 <#
 File: TIADE.ps1
 Author: MSFT for AD Module DLL
-Automator: Yobroda (@yobroda)
+Automator: Yobroda (@itsyobroda)
 #>
 
 
