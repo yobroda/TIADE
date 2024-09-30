@@ -136,6 +136,12 @@ if ($fexec){
 		Get-ADPrincipalGroupMembershipRecursive ([Environment]::UserName).ToString()
 		"";
 		}
+
+		"";"$([char]27)[4mGroup membership of all users$([char]27)[24m:";
+		$usr = Get-ADUser -Filter * -Properties * -Server $dname -ErrorAction SilentlyContinue;$usam=$usr.SamAccountName;foreach($sam in $usam){".....";"The groups of User $($sam):";Get-ADPrincipalGroupMembershipRecursive($sam);"------"}
+		"";
+		Start-Sleep -Seconds 9;
+    
 		Start-Sleep -Seconds 3;
 		"";"$([char]27)[4mControl over DAs$([char]27)[24m:";
 		$dagroup = Get-ADGroup -Identity "Domain Admins" -Server $dname -ErrorAction SilentlyContinue
