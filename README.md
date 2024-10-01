@@ -50,7 +50,8 @@ It first collects all the domains in the multi-trust environment, iterate each o
 [Read Here !!](https://blog.radifine.com/tiade-corresponding-blog-for-script-release-d0aef9037382)
 
 ## What is the Roadmap?
-* Random Sleep Generator
+* Random Sleep Generator 
+* Guid Mapping
 * Lot of refactoring to make efficient code
 * Lots of optimization (example - default output removal for disabled accounts)
 * ACL Scanner
