@@ -105,7 +105,7 @@ if ($fexec){
 		Start-Sleep -Seconds 14;
 		"";"$([char]27)[4mService Accounts$([char]27)[24m:";
 		Get-ADUser -Filter {ServicePrincipalName -ne "$null"} -Properties *  -Server $dname -ErrorAction SilentlyContinue | select samaccountname,DistinguishedName,ServicePrincipalName | FL ;
-		$svcnames = (Get-ADServiceAccount -Filter * -Server $dname -ErrorAction SilentlyContinue).Name; ForEach ($svcname in $svcnames){"";"Managed SVC Account: ";"";Get-ADServiceAccount -Identity $svcname -Properties * | select DistinguishedName,PrincipalsAllowedToRetrieveManagedPassword | FL};
+		$svcnames = (Get-ADServiceAccount -Filter * -Server $dname -ErrorAction SilentlyContinue).Name; ForEach ($svcname in $svcnames){"";"Managed SVC Account: ";"";Get-ADServiceAccount -Identity $svcname -Properties * -Server $dname | select DistinguishedName,PrincipalsAllowedToRetrieveManagedPassword | FL};
 		"";"$([char]27)[4mMSSQL Service Accounts$([char]27)[24m:";
 		Get-ADObject -Filter { ServicePrincipalName -like "mssql*" } -Property ServicePrincipalName -Server $dname -ErrorAction SilentlyContinue
 		"";
