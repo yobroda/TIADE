@@ -137,10 +137,7 @@ if ($fexec){
 		"";
 		}
 
-		"";"$([char]27)[4mGroup membership of all users$([char]27)[24m:";
-		$usr = Get-ADUser -Filter * -Properties * -Server $dname -ErrorAction SilentlyContinue;$usam=$usr.SamAccountName;foreach($sam in $usam){".....";"The groups of User $($sam):";Get-ADPrincipalGroupMembershipRecursive($sam);"------"}
-		"";
-		Start-Sleep -Seconds 9;
+		
     
 		Start-Sleep -Seconds 3;
 		"";"$([char]27)[4mControl over DAs$([char]27)[24m:";
@@ -201,6 +198,11 @@ if ($fexec){
 		Start-Sleep -Seconds 4;
 		"";"$([char]27)[4mOUs and GPOs Information$([char]27)[24m:";
 		$domainDN = (Get-ADDomain -Server $dname).DistinguishedName;$ldapFilter = "(objectClass=groupPolicyContainer)";$searchBase = "CN=Policies,CN=System,"+$domainDN;$gpos = Get-ADObject -LDAPFilter $ldapFilter -SearchBase $searchBase -Properties * -Server $dname; $domain = (Get-ADDomain -Server $dname -ErrorAction SilentlyContinue).DNSRoot;$ous = Get-ADOrganizationalUnit -Filter * -Properties * -Server $dname -ErrorAction SilentlyContinue|Select Name,DistinguishedName,gpLink; ForEach($ou in $ous){ "------------------------";"OuDetails:";$ou |FL ; $gpl = $ou.gpLink; $gplid=$gpl.ToString().Split("{")[-1].Split("}")[0]; "GPO details related to above OU:"; $dgpo= $gpos | Where-Object {$_.CN -match $gplid}; $dgpo; $dgpopth=$dgpo.gpcfilesyspath+"\MACHINE\Microsoft\Windows NT\SecEdit\GptTmpl.inf";"Contents of GPO file from SYSVOL:";"";$optmp=cat $dgpopth;$optmp;if($optmp  | Select-String -Pattern '\[Group Membership\]'){"";"-++++++This GPO may have restricted groups+++++++-"}; "";"Where the OU is applied i.e. applicability on which members:"; ""; $sb=$ou.DistinguishedName; Get-ADComputer -Filter * -SearchBase $sb -Server $dname -ErrorAction SilentlyContinue | Select Name; "";"------------------------" }; "------------------------";"OuDetails: NA "; "";"GPO details related to Default Domain Policy:";"";$ddgpo=$gpos | Where-Object {$_.CN -match '{31B2F340-016D-11D2-945F-00C04FB984F9}'};$ddgpo;$ddgpopth=$ddgpo.gpcfilesyspath+"\MACHINE\Microsoft\Windows NT\SecEdit\GptTmpl.inf";"Contents of GPO file from SYSVOL:";"";cat $ddgpopth;"------------------------";
+		Start-Sleep -Seconds 9;
+
+  		"";"$([char]27)[4mGroup membership of all users$([char]27)[24m:";
+		$usr = Get-ADUser -Filter * -Properties * -Server $dname -ErrorAction SilentlyContinue;$usam=$usr.SamAccountName;foreach($sam in $usam){".....";"The groups of User $($sam):";Get-ADPrincipalGroupMembershipRecursive($sam);"------"}
+		"";
 		Start-Sleep -Seconds 9;
 		
 		
