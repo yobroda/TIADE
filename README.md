@@ -2,6 +2,7 @@
 It is a powershell script that can be used for Initial Enumeration of a Multi-Trust Active Directory Environment by only leveraging the AD Module
 
 [By Yobroda](https://x.com/itsyobroda "yobroda")
+
 Discord Username - itsyobroda
 ## How to use it?
 ```powershell
