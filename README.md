@@ -2,7 +2,7 @@
 It is a powershell script that can be used for Initial Enumeration of a Multi-Trust Active Directory Environment by only leveraging the AD Module
 
 [By Yobroda](https://x.com/itsyobroda "yobroda")
-
+Discord Username - itsyobroda
 ## How to use it?
 ```powershell
 
@@ -66,4 +66,4 @@ It first collects all the domains in the multi-trust environment, iterate each o
 * Possible Invoke-FileFinder
 * Possible port to full fledged C# .Net application (possibly not the one that runs this script in a powershell runspace)
 
-### Would like to contribute to this repo? - Feel free to reach out to me on X/Twitter. The link to my handle is mentioned at the start of this README.md
+### Would like to contribute to this repo? - Feel free to reach out to me on Discord OR X/Twitter. The link to my handle is mentioned at the start of this README.md
